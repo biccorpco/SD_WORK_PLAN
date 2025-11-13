@@ -290,48 +290,9 @@
           padding: 20px;
         }
       }
-
-      /* PDF Download Button */
-      .pdf-download-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-size: 1em;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        transition: all 0.3s ease;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .pdf-download-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-      }
-
-      .pdf-download-btn:active {
-        transform: translateY(0);
-      }
-
-      @media print {
-        .pdf-download-btn {
-          display: none !important;
-        }
-      }
     </style>
   </head>
   <body>
-    <button class="pdf-download-btn" onclick="downloadPDF()">
-      📥 ดาวน์โหลด PDF
-    </button>
     <div class="container">
       <div class="header">
         <h1>📊 แผนงานโปรเจกต์</h1>
@@ -502,9 +463,6 @@
       </div>
     </div>
 
-    <!-- html2pdf.js library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
     <script>
       // แสดงวันที่ปัจจุบัน
       document.getElementById('currentDate').textContent =
@@ -513,60 +471,6 @@
           month: 'long',
           day: 'numeric',
         });
-
-      // ฟังก์ชันดาวน์โหลด PDF
-      function downloadPDF() {
-        // ซ่อนปุ่มดาวน์โหลดชั่วคระว
-        const button = document.querySelector('.pdf-download-btn');
-        button.style.display = 'none';
-
-        // Scroll to top
-        window.scrollTo(0, 0);
-
-        // รอให้ render เสร็จ
-        setTimeout(() => {
-          const opt = {
-            margin: 10,
-            filename:
-              'Work-Plan-Report-' +
-              new Date().toISOString().split('T')[0] +
-              '.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: {
-              scale: 2,
-              useCORS: true,
-              logging: false,
-              scrollY: -window.scrollY,
-              scrollX: 0,
-              windowWidth: document.documentElement.scrollWidth,
-              windowHeight: document.documentElement.scrollHeight,
-            },
-            jsPDF: {
-              unit: 'mm',
-              format: 'a4',
-              orientation: 'portrait',
-            },
-            pagebreak: {
-              mode: ['avoid-all', 'css', 'legacy'],
-              avoid: ['.project-card', '.stat-box'],
-            },
-          };
-
-          // จับภาพ body ทั้งหมด
-          html2pdf()
-            .from(document.body)
-            .set(opt)
-            .save()
-            .then(() => {
-              button.style.display = 'flex';
-            })
-            .catch((error) => {
-              console.error('Error generating PDF:', error);
-              button.style.display = 'flex';
-              alert('เกิดข้อผิดพลาดในการสร้าง PDF กรุณาลองใหม่อีกครั้ง');
-            });
-        }, 100);
-      }
     </script>
   </body>
 </html>
