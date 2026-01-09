@@ -577,13 +577,79 @@
           font-size: 2em;
         }
 
-        .system-grid, .summary-section, .info-grid.two-col, .info-grid.three-col, .info-grid.six-col {
+        .system-grid,
+        .summary-section,
+        .info-grid.two-col,
+        .info-grid.three-col,
+        .info-grid.six-col {
           grid-template-columns: 1fr;
         }
 
-        .content, .info-section {
+        .content,
+        .info-section {
           padding: 20px;
         }
+      }
+      /* Team Section Styles */
+      .team-section {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+      }
+
+      .team-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .team-label {
+        font-size: 0.9em;
+        font-weight: 600;
+        color: #7f8c8d;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .team-members {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .member-badge {
+        font-size: 0.9em;
+        padding: 6px 16px; /* Larger padding for pill shape */
+        border-radius: 20px;
+        background: white;
+        color: #2c3e50;
+        border: 2px solid #ecf0f1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+      }
+
+      /* Both regular and lead badges share this style now */
+      .member-badge.lead {
+        background: white;
+        color: #2c3e50;
+        border: 2px solid #ecf0f1;
+      }
+
+      /* Use blue user icon for all badges */
+      .member-badge::before {
+        content: '👤';
+        color: #3498db; /* Blue icon */
+        font-size: 1.1em;
+      }
+
+      .member-badge.lead::before {
+        content: '👤';
+        color: #3498db;
+        font-size: 1.1em;
       }
     </style>
   </head>
@@ -591,7 +657,16 @@
     <div class="container">
       <div class="header">
         <h1>
-          <span style="background: rgba(255, 255, 255, 0.2); padding: 8px 20px; border-radius: 50%; margin-right: 15px; border: 3px solid rgba(255, 255, 255, 0.3);">1</span>
+          <span
+            style="
+              background: rgba(255, 255, 255, 0.2);
+              padding: 8px 20px;
+              border-radius: 50%;
+              margin-right: 15px;
+              border: 3px solid rgba(255, 255, 255, 0.3);
+            "
+            >1</span
+          >
           📋 ระบบงานทั้งหมด
         </h1>
         <p>All System Operations - ระบบที่ทีมดูแลและพัฒนา</p>
@@ -607,7 +682,7 @@
           </div>
 
           <div class="summary-card development">
-             <!-- Using 'development' class for 'Developing', but color is red. Maybe Waiting (orange) fits 'In Progress' better? sticking to class=development for now -->
+            <!-- Using 'development' class for 'Developing', but color is red. Maybe Waiting (orange) fits 'In Progress' better? sticking to class=development for now -->
             <div class="summary-icon">🔧</div>
             <div class="summary-number">4</div>
             <div class="summary-label">กำลังพัฒนา</div>
@@ -635,99 +710,319 @@
           <!-- SAP Items -->
           <div class="system-card sap">
             <div class="system-number">01</div>
-            <div class="system-title"><span class="system-title-text">ระบบตรวจเทียบสิทธิ์ SAP</span></div>
-            <div class="system-description">ใช้อ่านไฟล์ xls ที่ export จาก SAP มาตรวจเทียบสิทธิ์</div>
+            <div class="system-title">
+              <span class="system-title-text">ระบบตรวจเทียบสิทธิ์ SAP</span>
+            </div>
+            <div class="system-description">
+              ใช้อ่านไฟล์ xls ที่ export จาก SAP มาตรวจเทียบสิทธิ์
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">02</div>
-            <div class="system-title"><span class="system-title-text">ฟอร์ม ระบบ SAP</span></div>
+            <div class="system-title">
+              <span class="system-title-text">ฟอร์ม ระบบ SAP</span>
+            </div>
             <div class="system-description">ฟอร์ม ใช้ระบบ SAP</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">03</div>
-            <div class="system-title"><span class="system-title-text">ระบบสร้าง Series เอกสาร SAP</span></div>
-            <div class="system-description">เพื่อสร้าง Series เอกสาร ระบบ SAP</div>
+            <div class="system-title">
+              <span class="system-title-text">ระบบสร้าง Series เอกสาร SAP</span>
+            </div>
+            <div class="system-description">
+              เพื่อสร้าง Series เอกสาร ระบบ SAP
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">04</div>
-            <div class="system-title"><span class="system-title-text">ระบบ Issue for Production</span></div>
-            <div class="system-description">เพื่อนำเข้าข้อมูลการตัดสินค้าหรือ Batching ผลิต ของ JBF</div>
+            <div class="system-title">
+              <span class="system-title-text">ระบบ Issue for Production</span>
+            </div>
+            <div class="system-description">
+              เพื่อนำเข้าข้อมูลการตัดสินค้าหรือ Batching ผลิต ของ JBF
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แม็ก</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">05</div>
-            <div class="system-title"><span class="system-title-text">SAP B1 Extension</span></div>
-            <div class="system-description">เป็นระบบสำหรับตั้งส่งเมลแจ้งเตือนเอกสารรออนุมัติ ตามรอบเวลา</div>
+            <div class="system-title">
+              <span class="system-title-text">SAP B1 Extension</span>
+            </div>
+            <div class="system-description">
+              เป็นระบบสำหรับตั้งส่งเมลแจ้งเตือนเอกสารรออนุมัติ ตามรอบเวลา
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">06</div>
-            <div class="system-title"><span class="system-title-text">ระบบอนุมัติเอกสาร SAP</span></div>
-            <div class="system-description">เป็นหน้าเว็บสำหรับอนุมัติเอกสาร SAP (สำรองกรณี SAP Mobile ขัดข้อง)</div>
+            <div class="system-title">
+              <span class="system-title-text">ระบบอนุมัติเอกสาร SAP</span>
+            </div>
+            <div class="system-description">
+              เป็นหน้าเว็บสำหรับอนุมัติเอกสาร SAP (สำรองกรณี SAP Mobile ขัดข้อง)
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แม็ก</span>
+                  <span class="member-badge lead">ค้อท</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">07</div>
-            <div class="system-title"><span class="system-title-text">ระบบแสดงรายงาน</span></div>
-            <div class="system-description">Framework สำเร็จรูปสำหรับรายงาน Dashboard SuperSet</div>
+            <div class="system-title">
+              <span class="system-title-text">ระบบแสดงรายงาน</span>
+            </div>
+            <div class="system-description">
+              Framework สำเร็จรูปสำหรับรายงาน Dashboard SuperSet
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">08</div>
-            <div class="system-title"><span class="system-title-text">Service Layer</span></div>
+            <div class="system-title">
+              <span class="system-title-text">Service Layer</span>
+            </div>
             <div class="system-description">API ของระบบ SAP</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">09</div>
-            <div class="system-title"><span class="system-title-text">SAP</span></div>
+            <div class="system-title">
+              <span class="system-title-text">SAP</span>
+            </div>
             <div class="system-description">ระบบ SAP</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">10</div>
-            <div class="system-title"><span class="system-title-text">Sap Web</span></div>
-            <div class="system-description">ใช้งาน sap ผ่าน web เหมาะสำหรับ อนุมัติผ่านมือถือ</div>
+            <div class="system-title">
+              <span class="system-title-text">Sap Web</span>
+            </div>
+            <div class="system-description">
+              ใช้งาน sap ผ่าน web เหมาะสำหรับ อนุมัติผ่านมือถือ
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- DEV Items -->
           <div class="system-card development">
             <div class="system-number">11</div>
-            <div class="system-title"><span class="system-title-text">ระบบ E-OFFICE</span></div>
+            <div class="system-title">
+              <span class="system-title-text">ระบบ E-OFFICE</span>
+            </div>
             <div class="system-description">ระบบ E-OFFICE</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แม็ก</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card development">
             <div class="system-number">12</div>
-            <div class="system-title"><span class="system-title-text">ระบบ E-OFFICE Docker</span></div>
+            <div class="system-title">
+              <span class="system-title-text">ระบบ E-OFFICE Docker</span>
+            </div>
             <div class="system-description">Docker สำหรับระบบ E-OFFICE</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge">แม็ก</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card development">
             <div class="system-number">13</div>
-            <div class="system-title"><span class="system-title-text">REDMINE</span></div>
-            <div class="system-description">Framework สำเร็จรูปสำหรับจัดการ Issue</div>
+            <div class="system-title">
+              <span class="system-title-text">REDMINE</span>
+            </div>
+            <div class="system-description">
+              Framework สำเร็จรูปสำหรับจัดการ Issue
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">แม็ก</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card development">
             <div class="system-number">14</div>
-            <div class="system-title"><span class="system-title-text">โปรแกรม Feedpro (iOS)</span></div>
+            <div class="system-title">
+              <span class="system-title-text">โปรแกรม Feedpro (iOS)</span>
+            </div>
             <div class="system-description">โปรแกรม FeedPro iOS</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card development">
             <div class="system-number">15</div>
-            <div class="system-title"><span class="system-title-text">Server Feedpro</span></div>
+            <div class="system-title">
+              <span class="system-title-text">Server Feedpro</span>
+            </div>
             <div class="system-description">-</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card development">
             <div class="system-number">16</div>
-            <div class="system-title"><span class="system-title-text">Server Feedpro (Docker)</span></div>
+            <div class="system-title">
+              <span class="system-title-text">Server Feedpro (Docker)</span>
+            </div>
             <div class="system-description">-</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge">อาร์ม</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card development">
             <div class="system-number">17</div>
-            <div class="system-title"><span class="system-title-text">Kong</span></div>
+            <div class="system-title">
+              <span class="system-title-text">Kong</span>
+            </div>
             <div class="system-description">ระบบทำ Routing ของ Webapp</div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge">แม็ก</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="system-card development">
             <div class="system-number">18</div>
-            <div class="system-title"><span class="system-title-text">e-Auction</span></div>
-            <div class="system-description">โปรแกรมใช้สำหรับประมูลอิเล็กทรอนิกส์</div>
+            <div class="system-title">
+              <span class="system-title-text">e-Auction</span>
+            </div>
+            <div class="system-description">
+              โปรแกรมใช้สำหรับประมูลอิเล็กทรอนิกส์
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แม็ก</span>
+                  <span class="member-badge lead">ค้อท</span>
+                </div>
+              </div>
+            </div>
           </div>
-           <div class="system-card development">
+          <div class="system-card development">
             <div class="system-number">19</div>
-            <div class="system-title"><span class="system-title-text">Odoo Farm Management JBF</span></div>
-            <div class="system-description">โปรแกรมใช้สำหรับจัดการฟาร์ม JBF (Odoo18 Community)</div>
+            <div class="system-title">
+              <span class="system-title-text">Odoo Farm JBF</span>
+            </div>
+            <div class="system-description">
+              โปรแกรมใช้สำหรับจัดการฟาร์ม JBF (Odoo18 Community)
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แม็ก</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -737,45 +1032,119 @@
         </div>
 
         <div class="system-grid">
-           <!-- SAP Items -->
-           <div class="system-card sap">
+          <!-- SAP Items -->
+          <div class="system-card sap">
             <div class="system-number">01</div>
-            <div class="system-title"><span class="system-title-text">SAP Daily Cost</span></div>
+            <div class="system-title">
+              <span class="system-title-text">SAP Daily Cost</span>
+            </div>
             <div class="system-description">
               ระบบควบคุม Budget ใน SAP ใช้งานจริงแล้ว / คงเหลือการออกรายงาน
-               <div style="margin-top: 8px; font-size: 0.9em; color: #3498db; font-weight: 600;">
-                 ℹ️ อยู่ระหว่างเริ่มดำเนินการ แก้ไขจาก user ทดสอบระบบ
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #3498db;
+                  font-weight: 600;
+                "
+              >
+                ℹ️ อยู่ระหว่างเริ่มดำเนินการ แก้ไขจาก user ทดสอบระบบ
+              </div>
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="system-card sap">
             <div class="system-number">02</div>
-            <div class="system-title"><span class="system-title-text">SAP-AddOn Budget</span></div>
+            <div class="system-title">
+              <span class="system-title-text">SAP-AddOn Budget</span>
+            </div>
             <div class="system-description">
               ต้นทุนแท้จริงในระบบ SAP, ปัจจุบันอยู่
-               <div style="margin-top: 8px; font-size: 0.9em; color: #3498db; font-weight: 600;">
-                 ℹ️ อยู่ระหว่างเริ่มดำเนินการ ตรวจสอบความถูกต้องข้อมูล ทั้ง 4 บริษัท
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #3498db;
+                  font-weight: 600;
+                "
+              >
+                ℹ️ อยู่ระหว่างเริ่มดำเนินการ ตรวจสอบความถูกต้องข้อมูล ทั้ง 4
+                บริษัท
+              </div>
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แนค</span>
+                  <span class="member-badge lead">อาร์ม</span>
+                </div>
               </div>
             </div>
           </div>
-           <!-- DEV Items -->
+          <!-- DEV Items -->
           <div class="system-card development">
             <div class="system-number">03</div>
-            <div class="system-title"><span class="system-title-text">e-Auction เฟส2</span></div>
+            <div class="system-title">
+              <span class="system-title-text">e-Auction เฟส2</span>
+            </div>
             <div class="system-description">
-              เพิ่มระบบ E-mail การส่งเมลอัตโนมัติ, เพิ่มการ approval ยืนยันเลือกผู้จัดซื้อจัดจ้าง
-              <div style="margin-top: 8px; font-size: 0.9em; color: #3498db; font-weight: 600;">
-                 ℹ️ requirement เพิ่ม ตั้งค่ากำหนดเวลาในการส่งเมลแจ้งผลการประมูล
+              เพิ่มระบบ E-mail การส่งเมลอัตโนมัติ, เพิ่มการ approval
+              ยืนยันเลือกผู้จัดซื้อจัดจ้าง
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #3498db;
+                  font-weight: 600;
+                "
+              >
+                ℹ️ requirement เพิ่ม ตั้งค่ากำหนดเวลาในการส่งเมลแจ้งผลการประมูล
+              </div>
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แม็ก</span>
+                  <span class="member-badge lead">ค้อท</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="system-card development">
             <div class="system-number">04</div>
-            <div class="system-title"><span class="system-title-text">Dashboard</span></div>
+            <div class="system-title">
+              <span class="system-title-text">Dashboard</span>
+            </div>
             <div class="system-description">
               สรุปรายหารข้อมูลส่วนกลาง ให้ทุกๆแผนกใช้งานร่วมกันได้
-               <div style="margin-top: 8px; font-size: 0.9em; color: #3498db; font-weight: 600;">
-                 ℹ️ อยู่ระหว่างวางแบบแผนโครงสร้าง ต้นแบบ Dashboard
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #3498db;
+                  font-weight: 600;
+                "
+              >
+                ℹ️ อยู่ระหว่างวางแบบแผนโครงสร้าง ต้นแบบ Dashboard
+              </div>
+            </div>
+            <div class="team-section">
+              <div class="team-row">
+                <span class="team-label">👥 ผู้รับผิดชอบ:</span>
+                <div class="team-members">
+                  <span class="member-badge lead">แม็ก</span>
+                  <span class="member-badge lead">ค้อท</span>
+                </div>
               </div>
             </div>
           </div>
@@ -790,98 +1159,171 @@
           <!-- DEV Items (Waiting) -->
           <!-- 1. e-Tax (20 days) -->
           <div class="system-card development">
-             <!-- Using dev class for type color (red border) -->
+            <!-- Using dev class for type color (red border) -->
             <div class="system-number">01</div>
-            <div class="system-title"><span class="system-title-text">e-Tax</span></div>
+            <div class="system-title">
+              <span class="system-title-text">e-Tax</span>
+            </div>
             <div class="system-description">
-              ทำ API สำหรับส่งข้อมูล ให้กับ ซัพพลายเออร์ เอาข้อมูลไปส่งให้ สรรพากร
-              <div style="margin-top: 8px; font-size: 0.9em; color: #27ae60; font-weight: 600;">
-                 ⏳ คาดการณ์ 20 วัน
+              ทำ API สำหรับส่งข้อมูล ให้กับ ซัพพลายเออร์ เอาข้อมูลไปส่งให้
+              สรรพากร
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #27ae60;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ 20 วัน
               </div>
             </div>
           </div>
           <!-- 2. BOM Change Request (20 days) -->
           <div class="system-card development">
             <div class="system-number">02</div>
-            <div class="system-title"><span class="system-title-text">e-office แก้ไขลำดับการอนุมัติ BOM</span></div>
+            <div class="system-title">
+              <span class="system-title-text"
+                >e-office แก้ไขลำดับการอนุมัติ BOM</span
+              >
+            </div>
             <div class="system-description">
               -
-              <div style="margin-top: 8px; font-size: 0.9em; color: #27ae60; font-weight: 600;">
-                 ⏳ คาดการณ์ 20 วัน
-              </div>
-             </div>
-          </div>
-          <!-- 3. e-Billing (45 days) -->
-          <div class="system-card development">
-            <div class="system-number">03</div>
-            <div class="system-title"><span class="system-title-text">e-Billing</span></div>
-            <div class="system-description">
-              ระบบวางบิล
-              <div style="margin-top: 8px; font-size: 0.9em; color: #27ae60; font-weight: 600;">
-                ⏳ คาดการณ์ 45 วัน
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #27ae60;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ 20 วัน
               </div>
             </div>
           </div>
-          <!-- 4. e-Gateway (50 days) -->
+          <!-- 3. e-Gateway (50 days) -->
           <div class="system-card development">
             <div class="system-number">04</div>
-            <div class="system-title"><span class="system-title-text">e-Gateway (โรงงาน JBF)</span></div>
+            <div class="system-title">
+              <span class="system-title-text">e-Gateway (โรงงาน JBF)</span>
+            </div>
             <div class="system-description">
               จองคิวรถเข้า-รับ-ส่งสินค้า
-              <div style="margin-top: 8px; font-size: 0.9em; color: #27ae60; font-weight: 600;">
-                 ⏳ คาดการณ์ 50 วัน
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #27ae60;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ 40 วัน
+              </div>
+            </div>
+          </div>
+          <!-- 4. e-Billing (45 days) -->
+          <div class="system-card development">
+            <div class="system-number">03</div>
+            <div class="system-title">
+              <span class="system-title-text">e-Billing</span>
+            </div>
+            <div class="system-description">
+              ระบบวางบิล
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #27ae60;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ 45 วัน
               </div>
             </div>
           </div>
           <!-- 5. e-Business Partners (60 days) -->
           <div class="system-card development">
             <div class="system-number">05</div>
-            <div class="system-title"><span class="system-title-text">e-Business Partners</span></div>
+            <div class="system-title">
+              <span class="system-title-text">e-Business Partners</span>
+            </div>
             <div class="system-description">
               ระบบตรวจสอบการเพิ่ม Vendor/Customer. เชื่อมต่อกับ sap
-              <div style="margin-top: 8px; font-size: 0.9em; color: #f39c12; font-weight: 600;">
-                 ⏳ คาดการณ์ 60 วัน
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #f39c12;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ 60 วัน
               </div>
             </div>
           </div>
           <!-- 6. JBF Stock Search (60 days) -->
           <div class="system-card development">
             <div class="system-number">06</div>
-            <div class="system-title"><span class="system-title-text">ระบบค้นหาตำแหน่งสินค้าในคลัง JBF</span></div>
+            <div class="system-title">
+              <span class="system-title-text"
+                >ระบบค้นหาตำแหน่งสินค้าในคลัง JBF</span
+              >
+            </div>
             <div class="system-description">
               ดูข้อมูลใน sap ก่อนว่าสามารถทำได้ไหม
-              <div style="margin-top: 8px; font-size: 0.9em; color: #f39c12; font-weight: 600;">
-                 ⏳ คาดการณ์ 60 วัน
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #f39c12;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ 60 วัน
               </div>
             </div>
           </div>
           <!-- 7. e-Fixed Asset (100 days) -->
           <div class="system-card development">
             <div class="system-number">07</div>
-            <div class="system-title"><span class="system-title-text">e-Fixed Asset</span></div>
+            <div class="system-title">
+              <span class="system-title-text">e-Fixed Asset</span>
+            </div>
             <div class="system-description">
               ระบบจัดการในส่วนของคลังทรัพย์สิน
-              <div style="margin-top: 8px; font-size: 0.9em; color: #e74c3c; font-weight: 600;">
-                 ⏳ คาดการณ์ 100 วัน
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #e74c3c;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ 100 วัน
               </div>
             </div>
           </div>
           <!-- 8. FeedPro (1 Year) -->
           <div class="system-card development">
             <div class="system-number">08</div>
-            <div class="system-title"><span class="system-title-text">FeedPro โดยภาษาใหม่</span></div>
+            <div class="system-title">
+              <span class="system-title-text">FeedPro โดยภาษาใหม่</span>
+            </div>
             <div class="system-description">
               พัฒนาโดยภาษาใหม่แทนตัวเก่าในอนาคต
-              <div style="margin-top: 8px; font-size: 0.9em; color: #e74c3c; font-weight: 600;">
-                 ⏳ คาดการณ์ขั้นต่ำ 1 ปี
+              <div
+                style="
+                  margin-top: 8px;
+                  font-size: 0.9em;
+                  color: #e74c3c;
+                  font-weight: 600;
+                "
+              >
+                ⏳ คาดการณ์ขั้นต่ำ 1 ปี
               </div>
             </div>
           </div>
         </div>
-
-
-
-        
       </div>
     </div>
   </body>
